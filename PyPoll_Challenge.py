@@ -27,9 +27,9 @@ winning_count = 0
 winning_percentage = 0
 
 # 2: Track the largest county and county voter turnout.
-winning_county = ""
-winning_county_count = 0
-winning_county_percentage = 0
+largest_county = ""
+largest_county_count = 0
+largest_county_percentage = 0
 
 # Read the csv and convert it into a list of dictionaries
 with open(file_to_load) as election_data:
@@ -42,7 +42,7 @@ with open(file_to_load) as election_data:
     for row in reader:
 
         # Add to the total vote count
-        total_votes = total_votes + 1
+        total_votes += 1
 
         # Get the candidate name from each row.
         candidate_name = row[2]
@@ -65,10 +65,10 @@ with open(file_to_load) as election_data:
 
         # 4a: Write an if statement that checks that the
         # county does not match any existing county in the county list.
-        if county_name not in county_options:
+        if county_name not in county_list:
 
             # 4b: Add the existing county to the list of counties.
-            county_options.append(county_name)
+            county_list.append(county_name)
 
             # 4c: Begin tracking the county's vote count.
             county_votes[county_name] = 0
